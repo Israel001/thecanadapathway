@@ -1,95 +1,103 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import Footer from "@/components/Footer";
+import withLoginContext from "@/hoc/withLoginContext";
+
+function Home() {
+  const [accessCode, setAccessCode] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    axios
+      .post(`${process.env.BACKEND_URL || 'http://localhost:8085'}/login`, {
+        accessCode,
+      })
+      .then((response) => {
+        localStorage.setItem("accessToken", response?.data?.accessToken);
+        localStorage.setItem("user", JSON.stringify(response?.data?.user));
+        localStorage.setItem("date", new Date().getTime().toString());
+        router.push("/dashboard");
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div>
+      <div style={{ background: "black", color: "white", padding: "1rem" }}>
+        <h2 style={{ margin: "0" }}>Thecanadapathway.com</h2>
+      </div>
+      <div
+        style={{
+          background: "rgb(204,204,204,.5)",
+          height: "91vh",
+          display: "flex",
+        }}
+      >
+        <div
+          style={{
+            background: "white",
+            height: "fit-content",
+            padding: "3.5rem 1rem 7rem 1.5rem",
+            width: "70%",
+            margin: "auto",
+            borderTop: "3px solid orange",
+          }}
+        >
+          <form
+            style={{ textAlign: "center" }}
+            onSubmit={(event) => handleSubmit(event)}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+            <span style={{ fontWeight: "bold", display: "block" }}>
+              Login using your Access Code
+            </span>
+            <span
+              style={{ fontWeight: "bold", display: "block", color: "red" }}
+            >
+              Use your Access Code to Login
+            </span>
+            <input
+              type="password"
+              required
+              value={accessCode}
+              onChange={(event) => setAccessCode(event.target.value)}
             />
-          </a>
+            <button
+              style={{
+                display: "block",
+                margin: "auto",
+                background: "#b60000",
+                color: "white",
+                padding: "1rem 1.5rem",
+                outline: "none",
+                border: "none",
+                cursor: "pointer",
+              }}
+              className="accessCourse"
+            >
+              Access Course
+            </button>
+            <span
+              style={{
+                display: "block",
+                marginTop: "1rem",
+                fontWeight: "bold",
+                cursor: "pointer",
+              }}
+            >
+              Register a new membership
+            </span>
+          </form>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <Footer />
+    </div>
+  );
 }
+
+export default withLoginContext(Home);
