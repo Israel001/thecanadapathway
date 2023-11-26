@@ -11,7 +11,7 @@ const withDashboardContext = (Component: () => JSX.Element) => {
 
     const testToken = async (accessToken: string) => {
       await axios
-        .get(`${process.env.BACKEND_URL || 'http://localhost:8085'}/test-token`, {
+        .get(`${process.env.BACKEND_URL || 'https://backend.thecanadapathway.com'}/test-token`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

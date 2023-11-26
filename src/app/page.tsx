@@ -13,7 +13,7 @@ function Home() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     axios
-      .post(`${process.env.BACKEND_URL || 'http://localhost:8085'}/login`, {
+      .post(`${process.env.BACKEND_URL || 'https://backend.thecanadapathway.com'}/login`, {
         accessCode,
       })
       .then((response) => {
