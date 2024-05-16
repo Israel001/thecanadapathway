@@ -2,11 +2,11 @@
 "use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { faFilePdf, faFileVideo } from "@fortawesome/free-solid-svg-icons";
 import Chatbot, { createChatBotMessage } from "react-chatbot-kit";
 import MessageParser from "../../bot/MessageParser";
 import ActionProvider from "../../bot/ActionProvider";
-import config from '../../bot/config';
+import config from "../../bot/config";
 import "react-chatbot-kit/build/main.css";
 import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
@@ -130,6 +130,20 @@ const Dashboard = () => {
           />{" "}
           TEER AND NOC JOB CLASSIFICATION
         </a>
+        <a href="/video/htcaolp" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          HOW TO CREATE AN OUTSTANDING LINKEDIN PROFILE
+        </a>
+        <a href="/video/jcic" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          JOB CLASSIFICATION IN CANADA
+        </a>
 
         <div
           style={{
@@ -191,6 +205,13 @@ const Dashboard = () => {
           />{" "}
           WHAT PROVINCE SHOULD I SETTLE IN CANADA
         </a>
+        <a href="/course/sinp" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFilePdf}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          SASKATCHEWAN IMMIGRANT NOMINEE PROGRAM
+        </a>
 
         <div
           style={{
@@ -230,6 +251,36 @@ const Dashboard = () => {
             style={{ color: "darkred", marginRight: ".3rem" }}
           />{" "}
           THE A - Z OF SECURING A JOB IN CANADA
+        </a>
+        <a href="/video/htafowpcosbsasocwph" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          HOW TO APPLY FOR OPEN WORK PERMIT CANADA ONLINE STEP BY STEP AS SPOUSE
+          OF CLOSED WORK PERMIT HOLDER
+        </a>
+        <a href="/video/htafsowpicowpfs" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          HOW TO APPLY FOR SPOUSE OPEN WORK PERMIT INSIDE CANADA OPEN WORK
+          PERMIT FOR SPOUSE
+        </a>
+        <a href="/video/htgjnic" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          HOW TO GET JOB NOTIFICATION IN CANADA
+        </a>
+        <a href="/video/lfwr" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          LICENSED FOREIGN WORKER RECRUITERS
         </a>
 
         <div
@@ -289,6 +340,27 @@ const Dashboard = () => {
             style={{ color: "darkred", marginRight: ".3rem" }}
           />{" "}
           THE COMPLETE BREAKDOWN OF CANADA VISITOR'S VISA
+        </a>
+        <a href="/video/htfacvvastp" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          HOW TO APPLY FOR A CANADA VISITOR VISA AND STAY THERE PERMANENTLY
+        </a>
+        <a href="/video/htfvvo" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          HOW TO FILL VISITOR'S VISA ONLINE
+        </a>
+        <a href="/video/vvd" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          VISITOR'S VISA DOCUMENTS
         </a>
       </div>
 
