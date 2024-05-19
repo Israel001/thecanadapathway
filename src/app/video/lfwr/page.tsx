@@ -38,7 +38,14 @@ const VideoPage = () => {
           </Link>
           <br />
           <br />
-          <video src={`/${params.id}.mp4`} width="400px" controls />
+          <iframe
+            style={{ aspectRatio: "16 / 9", width: "100% important" }}
+            src="https://www.youtube.com/embed/h63oBbxFNG0"
+            title="Licensed Foreign Worker Recruiters"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
 

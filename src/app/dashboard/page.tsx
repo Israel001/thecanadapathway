@@ -355,6 +355,13 @@ const Dashboard = () => {
           />{" "}
           HOW TO FILL VISITOR'S VISA ONLINE
         </a>
+        <a href="/video/htfvvf" className="pdfLink">
+          <FontAwesomeIcon
+            icon={faFileVideo}
+            style={{ color: "darkred", marginRight: ".3rem" }}
+          />{" "}
+          HOW TO FILL VISITOR'S VISA FORM
+        </a>
         <a href="/video/vvd" className="pdfLink">
           <FontAwesomeIcon
             icon={faFileVideo}
